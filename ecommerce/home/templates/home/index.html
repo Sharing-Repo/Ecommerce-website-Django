@@ -1,0 +1,37 @@
+{% extends 'home/base.html' %}
+
+{% block home-body %}
+<div class="container mt-4">
+
+    <!-- Add Buttons -->
+    <div class="mb-4 d-flex justify-content-center gap-3 flex-wrap">
+        <a href="{% url 'home:modelform' %}" class="btn btn-success">Add Item</a>
+        <a href="{% url 'home:imgform' %}" class="btn btn-primary">Add Image</a>
+        <a href="{% url 'home:allimage' %}" class="btn btn-info text-white">All Images</a>
+    </div>
+
+    <div class="row">
+        {% for data in datas %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <img src="{{ data.Image }}" class="card-img-top" alt="Item Image" style="height: 200px; object-fit: cover;">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.Name }}</h5>
+                    <p class="card-text"><strong>Quality:</strong> {{ data.Quality }}</p>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between">
+                    <a href="{% url 'home:details' data.id %}" class="btn btn-dark btn-sm">More</a>
+                    <a href="{% url 'home:updateform' data.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p class="text-muted">No items available.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

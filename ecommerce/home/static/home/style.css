@@ -1,0 +1,20 @@
+.navbar-brand {
+    color: whitesmoke !important;
+}
+
+.navbar{
+    height: 70px !important;
+    background-color: #7c4dff !important;
+}
+
+.href-name{
+    color: white;
+}
+
+.columns-name{
+    color: rgb(253, 70, 3);
+}
+
+#active-navbar{
+    background-color: black !important;
+}
